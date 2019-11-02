@@ -1,0 +1,22 @@
+/* Storing the style specific variables for components in theme. */
+
+@value baseFontSize: 12px;
+@value baseFontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen","Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+@value secondaryFontFamily: Verdana;
+@value codeFontFamily: source-code-pro, Menlo, Monaco, Consolas, "Courier New",monospace;
+
+/* Typography */
+@value fontSizeH1: 2rem;
+@value fontSizeH2: 1.5rem;
+@value fontSizeH3: 1.2rem;
+@value fontSizeH4: 1rem;
+@value fontSizeH5: 0.8rem;
+@value fontSizeH6: 0.6rem;
+
+/* Font colors */
+@value primaryFontColor: #343434;
+@value secondaryFontColor: #b0aba3;
+
+/* App Header */
+@value appHeaderBgColor: #fff;
+@value appHeaderBoxShadowColor: rgba(0, 0, 0, 0.15);
