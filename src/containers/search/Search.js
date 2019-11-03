@@ -7,6 +7,8 @@ import styles from './Search.module.css';
 import DateField from '../../components/DateField/DateField';
 import SearchField from '../../components/SearchField/SearchField';
 import Table from '../../components/Table/Table';
+import {friendlyNumber} from '../../utils/MathUtils';
+import CampaignState from '../../components/CampaignState/CampaignState';
 
 class Search extends Component {
 
@@ -33,8 +35,8 @@ class Search extends Component {
           <td>{c.name}</td>
           <td>{c.startDate}</td>
           <td>{c.endDate}</td>
-          <td>{c.active}</td>
-          <td>{c.budget}</td>
+          <td><CampaignState startDate={c.startDate} endDate={c.endDate} /></td>
+          <td>{friendlyNumber(c.Budget)} USD</td>
         </tr>
       );
     });

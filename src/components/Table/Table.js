@@ -7,8 +7,6 @@ class Table extends PureComponent {
     const { Thead, Tbody } = this.props;
     return (
       <table className={styles['table']}>
-        {/* <Thead />
-        <Tbody /> */}
         {Thead}
         {Tbody}
       </table>
