@@ -1,6 +1,5 @@
 @value baseFontFamily from '../../theme/theme.css';
 
-
 .input {
   width: 100%;
   display: flex;

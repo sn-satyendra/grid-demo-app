@@ -6,8 +6,44 @@ import * as actions from '../../actions/SearchActions';
 import styles from './Search.module.css';
 import DateField from '../../components/DateField/DateField';
 import SearchField from '../../components/SearchField/SearchField';
+import Table from '../../components/Table/Table';
 
 class Search extends Component {
+
+  getTableHeader = () => {
+    return (
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Active</th>
+          <th>Budget</th>
+        </tr>
+      </thead>
+    );
+  };
+
+  getTableBody = () => {
+    const {campaigns} = this.props;
+    let cols = [];
+    campaigns && campaigns.forEach(c => {
+      cols.push(
+        <tr key={c.id}>
+          <td>{c.name}</td>
+          <td>{c.startDate}</td>
+          <td>{c.endDate}</td>
+          <td>{c.active}</td>
+          <td>{c.budget}</td>
+        </tr>
+      );
+    });
+    return (
+      <tbody>
+        {cols}
+      </tbody>
+    );
+  };
   
   render() {
     const {actions} = this.props;
@@ -36,7 +72,10 @@ class Search extends Component {
           </div>
         </div>
         <div className={styles['table']}>
-      
+          <Table
+            Thead={this.getTableHeader()}
+            Tbody={this.getTableBody()}
+          />
         </div>
       </div>
     );
@@ -53,7 +92,7 @@ Search.propTypes = {
 };
 
 function mapStateToProps(state) {
-  return state;
+  return state.SearchReducer;
 }
 
 function mapDispatchToProps(dispatch) {

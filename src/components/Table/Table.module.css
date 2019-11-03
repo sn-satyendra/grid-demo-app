@@ -1,0 +1,22 @@
+@value baseFontFamily from '../../theme/theme.css';
+
+.table {
+  margin-top: 30px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid grey;
+  font-family: baseFontFamily;
+}
+
+.table > thead {
+  background: blueviolet;
+  color: #fff;
+}
+
+.table td,
+.table th {
+  height: 1.2rem;
+  line-height: 1.2rem;
+  padding: 8px;
+}
