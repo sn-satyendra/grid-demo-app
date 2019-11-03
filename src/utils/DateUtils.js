@@ -2,7 +2,7 @@ import moment from 'moment';
 
 export function getMomentCompatibleFormat(d) {
   let tokens = d.split('/');
-  return `${tokens[2]}-${tokens[1]}-${tokens[0]}`;
+  return `${tokens[2].trim()}-${tokens[1].trim()}-${tokens[0].trim()}`;
 };
 
 export function isCurrentDateBetween(start, end) {
