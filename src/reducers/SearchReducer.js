@@ -1,17 +1,21 @@
 import * as TYPES from '../actions/ActionTypes';
 // import update from 'immutability-helper';
-import {AddCampaigns} from '../utils/DataUtil';
 
 const INITIAL_STATE = {
   startDate: undefined,
   endDate: undefined,
   search: "",
-  campaigns: AddCampaigns([]),
+  campaigns: [],
   isLoading: false
 };
 
 export default function SearchReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
+    case TYPES.UPDATE_CAMPAIGNS:
+      return {
+        ...state,
+        campaigns: state.campaigns.concat(action.data)
+      };
     case TYPES.ON_START_DATE_CHANGE:
       return {
         ...state,

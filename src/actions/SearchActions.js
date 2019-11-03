@@ -26,3 +26,10 @@ export function onSearch() {
     type: TYPES.ON_SEARCH
   };
 }
+
+export function updateCampaigns(c) {
+  return {
+    type: TYPES.UPDATE_CAMPAIGNS,
+    data: c
+  };
+}
