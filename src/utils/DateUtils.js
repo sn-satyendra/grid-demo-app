@@ -6,5 +6,5 @@ export function getMomentCompatibleFormat(d) {
 };
 
 export function isCurrentDateBetween(start, end) {
-  return !start || !end || moment().isBetween(getMomentCompatibleFormat(start), getMomentCompatibleFormat(start))
+  return !start || !end || moment().isBetween(getMomentCompatibleFormat(start), getMomentCompatibleFormat(end))
 }

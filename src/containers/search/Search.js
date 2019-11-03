@@ -27,9 +27,9 @@ class Search extends Component {
   };
 
   getTableBody = () => {
-    const {campaigns} = this.props;
+    const {filteredCampaigns} = this.props;
     let cols = [];
-    campaigns && campaigns.forEach(c => {
+    filteredCampaigns && filteredCampaigns.forEach(c => {
       cols.push(
         <tr key={c.id}>
           <td>{c.name}</td>
@@ -89,7 +89,7 @@ Search.propTypes = {
   startDate: PropTypes.string,
   endDate: PropTypes.string,
   search: PropTypes.string,
-  campaigns: PropTypes.array,
+  filteredCampaigns: PropTypes.array,
   isLoading: PropTypes.bool,
   actions: PropTypes.object
 };
