@@ -1,11 +1,12 @@
 import * as TYPES from '../actions/ActionTypes';
 // import update from 'immutability-helper';
+import {AddCampaigns} from '../utils/DataUtil';
 
 const INITIAL_STATE = {
   startDate: undefined,
   endDate: undefined,
   search: "",
-  campaigns: [],
+  campaigns: AddCampaigns([]),
   isLoading: false
 };
 

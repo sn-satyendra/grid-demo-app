@@ -14,10 +14,6 @@
   display: flex;
 }
 
-.inputs input {
-  margin: 5px;
-}
-
 .name {
   flex: 1;
 }

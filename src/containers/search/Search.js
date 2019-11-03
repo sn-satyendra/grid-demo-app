@@ -31,6 +31,7 @@ class Search extends Component {
               placeholder="Name"
               onChange={actions.onNameChange}
               value={this.props.search}
+              onSearch={actions.onSearch}
             />
           </div>
         </div>

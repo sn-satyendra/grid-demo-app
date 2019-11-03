@@ -1,5 +1,35 @@
-.input {
+.ct {
+  display: flex;
   width: 100%;
+  margin: 5px;
+  position: relative;
+}
+
+.button {
+  position: absolute;
+  right: 2px;
+  width: 40px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  white-space: nowrap;
+  line-height: 2rem;
+  height: 2rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: rgb(255, 255, 255);
+  transition: all 250ms ease 0s;
+  background: #fff;
+  top: 50%;
+  transform: translateY(-1rem);
+  border-width: 0;
+}
+
+.input {
+  flex: 1;
   display: flex;
   align-items: center;
   position: relative;
@@ -16,4 +46,5 @@
   border-style: solid;
   border-image: initial;
   border-color: inherit;
+  padding-right: 45px;
 }
