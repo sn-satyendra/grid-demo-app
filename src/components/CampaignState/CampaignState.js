@@ -1,18 +1,13 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styles from './CampaignState.module.css';
-import moment from 'moment';
+import {isCurrentDateBetween} from '../../utils/DateUtils';
 
 class CampaignState extends PureComponent {
 
-  getMomentCompatibleFormat = d => {
-    let tokens = d.split('/');
-    return `${tokens[2]}-${tokens[1]}-${tokens[0]}`;
-  };
-
   isActive = () => {
     const {startDate, endDate} = this.props;
-    return moment().isBetween(this.getMomentCompatibleFormat(startDate), this.getMomentCompatibleFormat(endDate));
+    return isCurrentDateBetween(startDate, endDate);
   };
 
   render() {

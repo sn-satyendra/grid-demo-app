@@ -62,6 +62,7 @@ class Search extends Component {
               placeholder="End Date"
               onChange={actions.onEndDateChange}
               value={this.props.endDate}
+              minValue={this.props.startDate}
             />
           </div>
           <div className={styles['name']}>
