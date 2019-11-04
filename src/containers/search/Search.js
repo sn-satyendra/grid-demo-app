@@ -9,6 +9,7 @@ import SearchField from '../../components/SearchField/SearchField';
 import Table from '../../components/Table/Table';
 import {friendlyNumber} from '../../utils/MathUtils';
 import CampaignState from '../../components/CampaignState/CampaignState';
+import Button from '../../components/Button/Button';
 
 class Search extends Component {
 
@@ -64,14 +65,20 @@ class Search extends Component {
               value={this.props.endDate}
               minValue={this.props.startDate}
             />
-          </div>
-          <div className={styles['name']}>
             <SearchField 
               placeholder="Name"
               onChange={actions.onNameChange}
-              value={this.props.search}
+              value={this.props.name}
               onSearch={actions.onSearch}
             />
+          </div>
+          <div className={styles['btn']}>
+            <Button onClick={actions.onSearch}>
+              Search
+            </Button>
+            {/* <button className={styles['button']} onClick={actions.onSearch}>
+              Search
+            </button> */}
           </div>
         </div>
         <div className={styles['table']}>
@@ -88,7 +95,7 @@ class Search extends Component {
 Search.propTypes = {
   startDate: PropTypes.string,
   endDate: PropTypes.string,
-  search: PropTypes.string,
+  name: PropTypes.string,
   filteredCampaigns: PropTypes.array,
   isLoading: PropTypes.bool,
   actions: PropTypes.object

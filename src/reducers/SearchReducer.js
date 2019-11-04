@@ -1,11 +1,11 @@
 import * as TYPES from '../actions/ActionTypes';
-// import update from 'immutability-helper';
-import {isCurrentDateBetween} from '../utils/DateUtils';
+import {isSameOrAfter, isSameOrBefore, getMomentCompatibleFormat} from '../utils/DateUtils';
+import filter from 'lodash/filter';
 
 const INITIAL_STATE = {
   startDate: undefined,
   endDate: undefined,
-  search: "",
+  name: "",
   campaigns: [],
   filteredCampaigns: [],
   isLoading: false
@@ -22,24 +22,22 @@ export default function SearchReducer(state = INITIAL_STATE, action) {
     case TYPES.ON_START_DATE_CHANGE:
       return {
         ...state,
-        startDate: action.data,
-        filteredCampaigns: doFilter(state.campaigns, {search: state.search, startDate: state.startDate, endDate: state.endDate})
+        startDate: action.data
       };
     case TYPES.ON_END_DATE_CHANGE:
       return {
         ...state,
-        endDate: action.data,
-        filteredCampaigns: doFilter(state.campaigns, {search: state.search, startDate: state.startDate, endDate: state.endDate})
+        endDate: action.data
       };
     case TYPES.ON_NAME_CHANGE:
       return {
         ...state,
-        search: action.data
+        name: action.data
       };
     case TYPES.ON_SEARCH:
       return {
         ...state,
-        filteredCampaigns: doFilter(state.campaigns, {search: state.search, startDate: state.startDate, endDate: state.endDate})
+        filteredCampaigns: doFilter(state.campaigns, {name: state.name, startDate: state.startDate, endDate: state.endDate})
       };
     default:
       return state;
@@ -47,13 +45,20 @@ export default function SearchReducer(state = INITIAL_STATE, action) {
 }
 
 function doFilter(campaigns, filters) {
-  let filtered = [];
-  let {search, startDate, endDate} = filters;
-  campaigns && campaigns.forEach(c => {
-    let name = c.name.toLowerCase();
-    if (name.includes(search.toLowerCase()) && isCurrentDateBetween(startDate, endDate)) {
-      filtered.push(c);
-    }
+  const fStartDate = filters.startDate;
+  const fEndDate = filters.endDate;
+  return filter(campaigns, (c) => {
+    let {name, startDate, endDate} = c;
+    name = name.toLowerCase();
+    startDate = getMomentCompatibleFormat(startDate);
+    endDate = getMomentCompatibleFormat(endDate);
+    return (
+      // TODO: This is a non pure operation which we are doing in reducer. This is a strict no
+      // for any production level app but the searching requires date calculations. Ideally,
+      // this should be a async action and handled by thunk middleware.
+      name.includes(filters.name.toLowerCase()) &&
+      ((fStartDate && isSameOrAfter(startDate, fStartDate)) || !fStartDate) &&
+      ((fEndDate && isSameOrBefore(endDate, fEndDate)) || !fEndDate)
+    );
   });
-  return filtered;
 }

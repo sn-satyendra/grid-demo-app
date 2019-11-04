@@ -20,6 +20,7 @@
   border-color: inherit;
   font-family: baseFontFamily;
   margin: 5px;
+  flex: 1;
 }
 
 /* .input::before {

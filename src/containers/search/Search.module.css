@@ -7,14 +7,16 @@
 .inputs {
   height: 50px;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dates {
-  flex: 2;
+  flex: 7;
   display: flex;
 }
 
-.name {
+.btn {
   flex: 1;
 }
 

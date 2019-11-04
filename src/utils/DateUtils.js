@@ -8,3 +8,11 @@ export function getMomentCompatibleFormat(d) {
 export function isCurrentDateBetween(start, end) {
   return !start || !end || moment().isBetween(getMomentCompatibleFormat(start), getMomentCompatibleFormat(end))
 }
+
+export function isSameOrAfter(d1, d2) {
+  return moment(d1).isSameOrAfter(d2);
+}
+
+export function isSameOrBefore(d1, d2) {
+  return moment(d1).isSameOrBefore(d2);
+}
