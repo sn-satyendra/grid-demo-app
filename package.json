@@ -6,7 +6,6 @@
     "@loadable/component": "^5.10.3",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
-    "immutability-helper": "^3.0.1",
     "moment": "^2.24.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

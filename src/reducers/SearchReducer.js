@@ -53,9 +53,6 @@ function doFilter(campaigns, filters) {
     startDate = getMomentCompatibleFormat(startDate);
     endDate = getMomentCompatibleFormat(endDate);
     return (
-      // TODO: This is a non pure operation which we are doing in reducer. This is a strict no
-      // for any production level app but the searching requires date calculations. Ideally,
-      // this should be a async action and handled by thunk middleware.
       name.includes(filters.name.toLowerCase()) &&
       ((fStartDate && isSameOrAfter(startDate, fStartDate)) || !fStartDate) &&
       ((fEndDate && isSameOrBefore(endDate, fEndDate)) || !fEndDate)
