@@ -10,6 +10,7 @@ import Table from '../../components/Table/Table';
 import {friendlyNumber} from '../../utils/MathUtils';
 import CampaignState from '../../components/CampaignState/CampaignState';
 import Button from '../../components/Button/Button';
+import moment from 'moment';
 
 class Search extends Component {
 
@@ -36,7 +37,7 @@ class Search extends Component {
           <td>{c.name}</td>
           <td>{c.startDate}</td>
           <td>{c.endDate}</td>
-          <td><CampaignState startDate={c.startDate} endDate={c.endDate} /></td>
+          <td><CampaignState currentDate={this.getCurrentDate()} startDate={c.startDate} endDate={c.endDate} /></td>
           <td>{friendlyNumber(c.Budget)} USD</td>
         </tr>
       );
@@ -46,6 +47,10 @@ class Search extends Component {
         {cols}
       </tbody>
     );
+  };
+
+  getCurrentDate = () => {
+    return moment().format('DD/MM/YYYY');
   };
   
   render() {

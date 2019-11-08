@@ -6,8 +6,8 @@ import {isCurrentDateBetween} from '../../utils/DateUtils';
 class CampaignState extends PureComponent {
 
   isActive = () => {
-    const {startDate, endDate} = this.props;
-    return isCurrentDateBetween(startDate, endDate);
+    const {currentDate, startDate, endDate} = this.props;
+    return isCurrentDateBetween(currentDate, startDate, endDate);
   };
 
   render() {
@@ -16,15 +16,16 @@ class CampaignState extends PureComponent {
       <div className={styles['ct']}>
         <div className={active ? styles['ic-active'] : styles['ic-inactive']}>
         </div>
-        <div>{active ? "Active": "Inactive"}</div>
+        <div className="state">{active ? "Active": "Inactive"}</div>
       </div>
     );
   }
 }
 
 CampaignState.propTypes = {
-  startDate: PropTypes.string,
-  endDate: PropTypes.string,
+  startDate: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
+  currentDate: PropTypes.string.isRequired
 };
 
 export default CampaignState;
