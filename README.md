@@ -14,3 +14,7 @@ Launches the test runner in the interactive watch mode.<br />
 ### `yarn build`
 
 Builds the app for production to the `build` folder.
+
+## Demo URL
+
+The demo can be accessed on [https://master.d88u6r22s80bd.amplifyapp.com/#/](https://master.d88u6r22s80bd.amplifyapp.com/#/).
