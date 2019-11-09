@@ -81,9 +81,6 @@ class Search extends Component {
             <Button onClick={actions.onSearch}>
               Search
             </Button>
-            {/* <button className={styles['button']} onClick={actions.onSearch}>
-              Search
-            </button> */}
           </div>
         </div>
         <div className={styles['table']}>
