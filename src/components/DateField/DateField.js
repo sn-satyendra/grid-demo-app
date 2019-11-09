@@ -10,12 +10,13 @@ class DateField extends PureComponent {
   };
 
   render() {
-    const { placeholder, value, minValue, maxValue } = this.props;
+    // TODO: Evaluate if any external library like react-datepicker is needed.
+    const { value, minValue, maxValue } = this.props;
     return (
       <input 
         className={styles['input']}
         type="date" value={value}
-        placeholder={placeholder}
+        // placeholder={placeholder}
         onChange={this.onChange}
         min={minValue}
         max={maxValue}

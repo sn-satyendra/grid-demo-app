@@ -10,15 +10,14 @@ class SearchField extends PureComponent {
   };
 
   render() {
-    const { placeholder, value, minValue, maxValue } = this.props;
+    const { placeholder, value } = this.props;
     return (
       <input
         className={styles['input']}
-        type="text" value={value}
+        type="text"
+        value={value}
         placeholder={placeholder}
         onChange={this.onChange}
-        min={minValue}
-        max={maxValue}
       />
     );
   }
@@ -27,9 +26,7 @@ class SearchField extends PureComponent {
 SearchField.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string,
-  onChange: PropTypes.func,
-  minValue: PropTypes.string,
-  maxValue: PropTypes.string
+  onChange: PropTypes.func
 };
 
 export default SearchField;

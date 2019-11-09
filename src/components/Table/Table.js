@@ -4,10 +4,11 @@ import styles from './Table.module.css';
 
 class Table extends PureComponent {
   getNoData = () => {
+    const { Thead } = this.props;
     return (
       <tbody>
         <tr>
-          <td colSpan="5">
+          <td colSpan={Thead && Thead.props.children.props.children.length}>
             No data available.
           </td>
         </tr>
